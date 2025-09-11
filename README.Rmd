@@ -16,12 +16,12 @@ Clone this repository and install using `devtools`:
 ```{r}
 
 # install devtools package
-install.packages(c("devtools"))
+# install.packages(c("devtools"))
 
-devtools::install_github("LukeMcPhan/FVCM")
+# devtools::install_github("LukeMcPhan/FVCM")
 
 # Remove the package zip after installation
-unlink("FVCM.zip")
+# unlink("FVCM.zip")
 
 # load library
 # library(FVCM)
@@ -42,52 +42,52 @@ This package contains five functions that are reflective of different analyses a
 ## Example Usage
 
 ```{r}
-# Load required packages
-library(FVCM)
+## Load required packages
+# library(FVCM)
 
-# Prepare input data
-data <- prepare_data(
-  transition_rules_file = "data/rules.csv",
-  flow_files = list("data/flow1.csv", "data/flow2.csv"),
-  inundation_raster_path = "data/inundation.tif",
-  vegetation_gdb_path = "data/vegetation.gdb",
-  vegetation_layer_name = "RRGF"
-)
+## Prepare input data
+# data <- prepare_data(
+#   transition_rules_file = "data/rules.csv",
+#   flow_files = list("data/flow1.csv", "data/flow2.csv"),
+#   inundation_raster_path = "data/inundation.tif",
+#   vegetation_gdb_path = "data/vegetation.gdb",
+#   vegetation_layer_name = "RRGF"
+# )
 
-# Format rules
-rules <- format_rules(data$transition_rules, data$ordered_states)
+## Format rules
+# rules <- format_rules(data$transition_rules, data$ordered_states)
 
-# Preprocess spatial data
-spatial <- spatial_preprocessing(data$inundation_raster, data$vegetation_data)
+## Preprocess spatial data
+# spatial <- spatial_preprocessing(data$inundation_raster, data$vegetation_data)
 
-# Analyze spells
-spell_output <- spells_analysis(
-  flow_data = data$flow_data[[1]],
-  inundation_raster = data$inundation_raster,
-  between_spell_lengths = 30,
-  water_year_start = 4,
-  save_spell_rule_timeseries = TRUE
-)
+## Analyze spells
+# spell_output <- spells_analysis(
+#   flow_data = data$flow_data[[1]],
+#   inundation_raster = data$inundation_raster,
+#   between_spell_lengths = 30,
+#   water_year_start = 4,
+#   save_spell_rule_timeseries = TRUE
+# )
 
-# Project matrix transitions
-projection <- matrix_projection(spatial, spell_output, rules)
-
-# Save outputs
-save_output(
-  matrix_projection_output = projection,
-  rule_set_name = "basecase",
-  vegetation_layer_name = "RRGF",
-  inundation_raster_name = "inundation",
-  flow_data_file_name = "flow1",
-  scenario_name = "test",
-  water_years = spell_output$water_years,
-  inundation_timeseries = spell_output$inundation_rule_timeseries
-)
+## Project matrix transitions
+# projection <- matrix_projection(spatial, spell_output, rules)
+# 
+# # Save outputs
+# save_output(
+#   matrix_projection_output = projection,
+#   rule_set_name = "basecase",
+#   vegetation_layer_name = "RRGF",
+#   inundation_raster_name = "inundation",
+#   flow_data_file_name = "flow1",
+#   scenario_name = "test",
+#   water_years = spell_output$water_years,
+#   inundation_timeseries = spell_output$inundation_rule_timeseries
+# )
 ```
 
 ## Authors
 
-Developed by [Luke McPhan], [CSIRO].
+Developed by Luke McPhan, CSIRO.
 
 ## License
 

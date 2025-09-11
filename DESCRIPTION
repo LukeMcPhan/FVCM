@@ -1,0 +1,12 @@
+Package: FVCM
+Title: Flooplain Vegetation Condition Model: State and transition model for Floodplain vegetation based on antecedent inundation conditions
+Version: 0.1.0
+Authors@R: 
+    person("Luke", "McPhan", , "luke.mcphan@csiro.au", role = c("aut", "cre"))
+Description: Tools to perform spatially-explicit state and transition simulation modeling using vegetation, flow data, and inundation rules. (EXPAND)
+License: MIT
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: dplyr,purrr,raster,sf,lubridate,stringr,readr,tibble,tidyr,fasterize,roxygen2
+Depends: R (>= 4.0.0)

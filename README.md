@@ -1,0 +1,112 @@
+FVCM Package
+================
+
+# FVCM (The Floodplain Vegetation Condition model)
+
+This package was created to simulate floodplain vegetation condition
+responses to river inundation over time. I developed a state and
+transition simulation model (STSM) using rasterised layers of inundation
+threshold, vegetation community type and condition. The STSM approach
+provides dynamic time-series of vegetation condition in response to
+different inundation sequences (defined in terms of frequency, timing
+and duration) for individual pixels in the vegetation rasters. The
+implementation of the FVCM is a major improvement to typical vegetation
+condition assessments and attendant decision making, providing a
+spatially and temporally explicit framework for quantifying vegetation
+outcomes in ways that have not previously been possible.
+
+Combining the STSM with hydrologic time-series and associated inundation
+sequences allows the projection of the initial vegetation state (veg
+type and veg condition) across a hydrologic time series representing
+different flow scenarios. Outputs from the model consist of annual
+rasters describing vegetation type and condition within each pixel
+across the floodplain area. Individual raster extents were aligned with
+zones in the inundation models.
+
+## Installation
+
+Clone this repository and install using `devtools`:
+
+``` r
+# install devtools package
+# install.packages(c("devtools"))
+
+# devtools::install_github("LukeMcPhan/FVCM")
+
+# Remove the package zip after installation
+# unlink("FVCM.zip")
+
+# load library
+# library(FVCM)
+```
+
+## Package Workflow
+
+This package contains five functions that are reflective of different
+analyses and must be used in the following order for analysis to run:
+
+1)  `prepare_data()` – Loads and processes vegetation, flow, and
+    inundation data.
+2)  `format_rules()` - define system states and transition rules.
+    Formats the transition rules for analysis.
+3)  `spatial_preprocessing()` - Splits and rasterizes spatial data for
+    analysis.
+4)  `spells_analysis()` - Analyzes flow data and calculates applicable
+    transitions.
+5)  `matrix_projection()` - Projects vegetation state transitions
+    spatially.
+6)  `save_output()` - Saves annual rasters and summaries.
+
+## Example Usage
+
+``` r
+## Load required packages
+# library(FVCM)
+
+## Prepare input data
+# data <- prepare_data(
+#   transition_rules_file = "data/rules.csv",
+#   flow_files = list("data/flow1.csv", "data/flow2.csv"),
+#   inundation_raster_path = "data/inundation.tif",
+#   vegetation_gdb_path = "data/vegetation.gdb",
+#   vegetation_layer_name = "RRGF"
+# )
+
+## Format rules
+# rules <- format_rules(data$transition_rules, data$ordered_states)
+
+## Preprocess spatial data
+# spatial <- spatial_preprocessing(data$inundation_raster, data$vegetation_data)
+
+## Analyze spells
+# spell_output <- spells_analysis(
+#   flow_data = data$flow_data[[1]],
+#   inundation_raster = data$inundation_raster,
+#   between_spell_lengths = 30,
+#   water_year_start = 4,
+#   save_spell_rule_timeseries = TRUE
+# )
+
+## Project matrix transitions
+# projection <- matrix_projection(spatial, spell_output, rules)
+# 
+# # Save outputs
+# save_output(
+#   matrix_projection_output = projection,
+#   rule_set_name = "basecase",
+#   vegetation_layer_name = "RRGF",
+#   inundation_raster_name = "inundation",
+#   flow_data_file_name = "flow1",
+#   scenario_name = "test",
+#   water_years = spell_output$water_years,
+#   inundation_timeseries = spell_output$inundation_rule_timeseries
+# )
+```
+
+## Authors
+
+Developed by Luke McPhan, CSIRO.
+
+## License
+
+This package is released under the MIT License.

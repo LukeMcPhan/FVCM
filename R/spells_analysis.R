@@ -3,11 +3,11 @@
 #' Applies run-length encoding to flow exceedance time series to identify spells,
 #' matches those to transition rules, and returns transition matrices for each year and scenario.
 #'
-#' @param flow_data A data frame with at least columns `date` and `Q` (flow value).
-#' @param inundation_raster A raster object used to derive flow thresholds.
-#' @param between_spell_lengths Integer specifying the maximum dry duration between spells.
-#' @param water_year_start Starting month of the water year (e.g., 4 for April).
-#' @param save_spell_rule_timeseries Logical: whether to include full timeseries outputs.
+#' @param flow_data A data frame with columns `date` and `Q` (flow value).
+#' @param inundation_raster A raster object of flow thresholds for inundation of floodplain.
+#' @param between_spell_lengths 'int' specifying the maximum duration between spells of that will not effect a transition from occurring.
+#' @param water_year_start 'int' Starting month of the water year (e.g., 4 for April).
+#' @param save_spell_rule_timeseries lgl: whether to include full timeseries outputs.
 #'
 #' @return A list containing:
 #'   - `water_years`: Vector of water years evaluated.
@@ -21,7 +21,6 @@ spells_analysis <- function(flow_data,
                             between_spell_lengths = 30,
                             water_year_start = 4,
                             save_spell_rule_timeseries = FALSE) {
-  # Full function body pasted below
 
   # Extract unique thresholds from raster
   all_flow_thresholds <- inundation_raster %>%

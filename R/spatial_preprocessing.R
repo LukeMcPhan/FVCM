@@ -3,7 +3,11 @@
 #' Tiles the inundation raster and extracts vegetation state by pixel.
 #'
 #' @param inundation_raster Raster layer of inundation thresholds.
+#' ## Inundation Thresholds
+#' Inundation thresholds must be in the same units as `Q` from the `flow_data` used for this analysis
 #' @param vegetation_data sf object of vegetation polygons.
+#' ## Vegetation states
+#' This sf object must contain a column named `state_ID` that includes the `initial_state_t0` as described in `format_rules()`
 #' @param tile_dimension Tile size (number of raster cells per tile side).
 #'
 #' @return A list of small rasters, pixel-to-state lookup tables, and vegetation state keys.

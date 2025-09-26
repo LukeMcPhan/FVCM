@@ -28,16 +28,12 @@ zones in the inundation models.
 Clone this repository and install using `devtools`:
 
 ``` r
-# install devtools package
-# install.packages(c("devtools"))
-
-# devtools::install_github("LukeMcPhan/FVCM")
+devtools::install_github("LukeMcPhan/FVCM")
 
 # Remove the package zip after installation
-# unlink("FVCM.zip")
 
 # load library
-# library(FVCM)
+library(FVCM)
 ```
 
 ## Package Workflow
@@ -45,16 +41,11 @@ Clone this repository and install using `devtools`:
 This package contains five functions that are reflective of different
 analyses and must be used in the following order for analysis to run:
 
-1)  `prepare_data()` – Loads and processes vegetation, flow, and
-    inundation data.
-2)  `format_rules()` - define system states and transition rules.
-    Formats the transition rules for analysis.
-3)  `spatial_preprocessing()` - Splits and rasterizes spatial data for
-    analysis.
-4)  `spells_analysis()` - Analyzes flow data and calculates applicable
-    transitions.
-5)  `matrix_projection()` - Projects vegetation state transitions
-    spatially.
+1)  `prepare_data()` – Loads and processes vegetation, flow, and inundation data.
+2)  `format_rules()` - define system states and transition rules. Formats the transition rules for analysis.
+3)  `spatial_preprocessing()` - Splits and rasterizes spatial data for analysis.
+4)  `spells_analysis()` - Analyzes flow data and calculates applicable transitions.
+5)  `matrix_projection()` - Projects vegetation state transitions spatially.
 6)  `save_output()` - Saves annual rasters and summaries.
 
 ## Example Usage

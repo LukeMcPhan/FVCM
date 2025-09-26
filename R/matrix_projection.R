@@ -6,7 +6,9 @@
 #' @param spells_analysis_output List output from spells_analysis().
 #' @param transition_rules_list Processed transition rules list from format_rules().
 #'
-#' @return A list containing annual rasters and summarized state transitions.
+#' @return A list containing:
+#' - `annual_raster_list`:
+#' - summarized state transitions.
 #' @export
 matrix_projection <- function(spatial_preprocessing_output = spatial_preprocessing_output,
                               spells_analysis_output = spells_analysis_output,

@@ -9,19 +9,22 @@ prepare_data(
   flow_files,
   inundation_raster_path,
   vegetation_gdb_path,
-  vegetation_layer_name
+  vegetation_layer_name,
+  ordered_states
 )
 }
 \arguments{
-\item{transition_rules_file}{File path to the CSV containing transition rules.}
+\item{transition_rules_file}{chr: File path to the CSV containing transition rules.}
 
-\item{flow_files}{List of file paths to CSV flow data.}
+\item{flow_files}{list: List of file paths to CSV flow data.}
 
-\item{inundation_raster_path}{File path to the inundation raster.}
+\item{inundation_raster_path}{chr: File path to the inundation raster.}
 
-\item{vegetation_gdb_path}{Path to the geodatabase with vegetation layer.}
+\item{vegetation_gdb_path}{chr: Path to the geodatabase with vegetation layer.}
 
-\item{vegetation_layer_name}{Name of the vegetation layer in the GDB.}
+\item{vegetation_layer_name}{chr: Name of the vegetation layer in the GDB.}
+
+\item{ordered_states}{fct: An ordered factor containing ordered states from Highest/First through to Lowest/Worst levels.}
 }
 \value{
 A list containing transition rules, ordered state factors, flow data, inundation raster, and vegetation data.

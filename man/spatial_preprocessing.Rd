@@ -7,9 +7,17 @@
 spatial_preprocessing(inundation_raster, vegetation_data, tile_dimension = 150)
 }
 \arguments{
-\item{inundation_raster}{Raster layer of inundation thresholds.}
+\item{inundation_raster}{Raster layer of inundation thresholds.
+\subsection{Inundation Thresholds}{
 
-\item{vegetation_data}{sf object of vegetation polygons.}
+Inundation thresholds must be in the same units as \code{Q} from the \code{flow_data} used for this analysis
+}}
+
+\item{vegetation_data}{sf object of vegetation polygons.
+\subsection{Vegetation states}{
+
+This sf object must contain a column named \code{state_ID} that includes the \code{initial_state_t0} as described in \code{format_rules()}
+}}
 
 \item{tile_dimension}{Tile size (number of raster cells per tile side).}
 }

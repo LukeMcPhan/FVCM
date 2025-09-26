@@ -13,15 +13,15 @@ spells_analysis(
 )
 }
 \arguments{
-\item{flow_data}{A data frame with at least columns \code{date} and \code{Q} (flow value).}
+\item{flow_data}{A data frame with columns \code{date} and \code{Q} (flow value).}
 
-\item{inundation_raster}{A raster object used to derive flow thresholds.}
+\item{inundation_raster}{A raster object of flow thresholds for inundation of floodplain.}
 
-\item{between_spell_lengths}{Integer specifying the maximum dry duration between spells.}
+\item{between_spell_lengths}{'int' specifying the maximum duration between spells of that will not effect a transition from occurring.}
 
-\item{water_year_start}{Starting month of the water year (e.g., 4 for April).}
+\item{water_year_start}{'int' Starting month of the water year (e.g., 4 for April).}
 
-\item{save_spell_rule_timeseries}{Logical: whether to include full timeseries outputs.}
+\item{save_spell_rule_timeseries}{lgl: whether to include full timeseries outputs.}
 }
 \value{
 A list containing:

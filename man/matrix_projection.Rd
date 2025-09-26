@@ -18,7 +18,11 @@ matrix_projection(
 \item{transition_rules_list}{Processed transition rules list from format_rules().}
 }
 \value{
-A list containing annual rasters and summarized state transitions.
+A list containing:
+\itemize{
+\item \code{annual_raster_list}:
+\item summarized state transitions.
+}
 }
 \description{
 Projects vegetation state transitions annually using transition matrices and spatial data.

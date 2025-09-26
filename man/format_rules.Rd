@@ -7,7 +7,20 @@
 format_rules(transition_rules, ordered_states)
 }
 \arguments{
-\item{transition_rules}{Data frame of raw transition rules.}
+\item{transition_rules}{Data frame of raw transition rules.
+\subsection{transition_rules details}{
+
+dataframe contains rows for each transition rule the following columns:
+initial_state_t0: 'chr' starting state prior to transition, i.e. time step t0
+future_state_t1: 'chr' state after transition occurs, i.e. time step t1
+rule_number: 'int' unique identifier for this rule
+spell_duration: 'int' number of days that spell type must be observed
+spell_type: 'cha' "wet" or "dry" to indicate if tracking spells_duration of inundated or dry pixels
+spell_count: 'int' number of spell events that are required within an annual_window
+annual_window: 'int' number of years that required for the evaluation of a state transition
+
+Future versions may include sequencing for rules if multiple conditions should be met within a year for a transition but currently only single time steps are possible.
+}}
 
 \item{ordered_states}{Factor of ordered state names.}
 }
